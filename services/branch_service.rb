@@ -3,7 +3,7 @@ $LOAD_PATH  << '../lib'
 require 'rubygems'
 require 'active_record'
 require 'bundler/setup'
-require 'YAML'
+require 'yaml'
 require 'logger'
 
 ['xpp3','stringprep','dom4j','whack','slf4j-api','slf4j-log4j12','log4j'].each do |name|

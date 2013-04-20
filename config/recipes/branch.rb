@@ -17,7 +17,6 @@ namespace :branch do
   desc "Symlink the torquebox.yml file into latest release"
   task :symlink, roles: :app do
     run "ln -nfs #{shared_path}/config/torquebox.yml #{release_path}/config/torquebox.yml"
-    run "ln -nfs #{shared_path}/log/branch.log #{release_path}/log/branch.log"
   end
   after "deploy:finalize_update", "branch:symlink"
   
