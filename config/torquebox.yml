@@ -1,0 +1,12 @@
+services:
+  BranchService:
+    config:
+      name: branch
+      server_host: localhost
+      server_port: 8888
+      sub_domain: branch
+      secret: secret
+      env: development
+      OPENTOK_API_KEY: 23037872                # should be a string
+      OPENTOK_API_SECRET: 1ae8668cf1479d06e12f5bed1575391c452e6cde
+      db: /Users/charlesokwandu/desktop/project/gutrees/config/

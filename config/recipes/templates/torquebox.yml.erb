@@ -1,0 +1,12 @@
+services:
+  BranchService:
+    config:
+      name: branch
+      server_host: <%= server_host %>
+      server_port: <%= server_port %>
+      sub_domain: <%= secret %>
+      secret: <%= shared_path %>
+      env: <%= env %>
+      OPENTOK_API_KEY: <%= OPENTOK_API_KEY %>                # should be a string
+      OPENTOK_API_SECRET: <%= OPENTOK_API_SECRET %>
+      db: <%= shared_path %>/config/
