@@ -27,23 +27,23 @@ class  BranchComponent <  AbstractComponent
   NS_ROSTER ='jabber:iq:roster'
   NS_CALL_INVITE='http://antrees.com/call_invite'
 
-  def initialize(name=nil,server_domain=nil,opentok_key=nil,opentok_secret=nil,env="development")
+  def initialize(name=nil,server_domain=nil,opts={})
     super(false)
     @name=name
     @server_domain=server_domain
     @domain="branch.#{@server_domain}"
     @jid=nil
-    @env=env
+    @env=opts["env"] || "development"
     @component_manager=nil
     @last_start_millis=nil
-    @opentok_api_key=opentok_key
-    @opentok_api_secret=opentok_secret
+    @opentok_api_key=opts["OPENTOK_API_KEY"]
+    @opentok_api_secret=opts["OPENTOK_API_SECRET"]
     @location="localhost"
     @OTSDK = OpenTok::OpenTokSDK.new @opentok_api_key,@opentok_api_secret
     # Creating Session object with p2p enabled
     @sessionProperties = {OpenTok::SessionPropertyConstants::P2P_PREFERENCE => "enabled"}
     #@redis =Redis.new(:host => 'localhost', :port => 6379)
-    set_up_logger
+    set_up_logger(opts["log_path"])
   end
 
   def init(jid,component_manager)
@@ -621,12 +621,12 @@ class  BranchComponent <  AbstractComponent
     result
   end
   
-  def set_up_logger
+  def set_up_logger(log_path)
     if @env == "development"
       @logger = TorqueBox::Logger.new( self.class )
     end 
     if @env == "production"
-      path = File.join(File.dirname(File.expand_path(__FILE__)), 'log/branch.log')
+      path = File.join(log_path, 'branch.log')
       file = File.open(path, File::WRONLY | File::APPEND | File::CREAT)
       file.sync = true
       @logger = Logger.new(file)

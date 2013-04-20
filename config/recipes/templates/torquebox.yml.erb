@@ -7,6 +7,7 @@ services:
       sub_domain: <%= secret %>
       secret: <%= shared_path %>
       env: <%= env %>
-      OPENTOK_API_KEY: <%= OPENTOK_API_KEY %>                # should be a string
-      OPENTOK_API_SECRET: <%= OPENTOK_API_SECRET %>
+      OPENTOK_API_KEY: <%= opentok_api_key %> 
+      OPENTOK_API_SECRET: <%= opentok_api_secret %>
       db: <%= shared_path %>/config/
+	  log_path: <%= shared_path %>/log/

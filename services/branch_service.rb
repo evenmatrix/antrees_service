@@ -32,10 +32,10 @@ class BranchService
     @manager = ExternalComponentManager.new @host,@port;
     @opentok_api_key=opts["OPENTOK_API_KEY"]
     @opentok_api_secret=opts["OPENTOK_API_SECRET"]
-    @branchComponent = BranchComponent.new @sub_domain,@host,@opentok_api_key,@opentok_api_secret,@env
+    @branchComponent = BranchComponent.new @sub_domain,@host,opts
     @manager.setSecretKey(@sub_domain,@secret);
     @manager.setMultipleAllowed(@sub_domain, true);
-    set_up_logger
+    set_up_logger(opts["log_path"])
     @logger.info "#{@host} #{@port} #{@sub_domain}"
   end
 
@@ -61,12 +61,12 @@ class BranchService
     @logger.info "pushed #{data}"
   end
 
-  def set_up_logger
+  def set_up_logger(log_path)
     if @env == "development"
       @logger = TorqueBox::Logger.new( self.class )
     end 
     if @env == "production"
-      path = File.join(File.dirname(File.expand_path(__FILE__)), '../log/branch.log')
+      path = File.join(log_path, 'branch.log')
       file = File.open(path, File::WRONLY | File::APPEND | File::CREAT)
       file.sync = true
       @logger = Logger.new(file)
