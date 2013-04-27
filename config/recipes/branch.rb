@@ -1,4 +1,4 @@
-set_default(:server_host, "localhost")
+set_default(:server_host, "antrees.com")
 set_default(:server_port, "8888")
 set_default(:sub_domain, "branch")
 set_default(:secret, "secret")

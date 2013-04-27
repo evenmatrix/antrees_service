@@ -484,14 +484,14 @@ class  BranchComponent <  AbstractComponent
     user= User.find(user_id)
     branch=Branch.find(branch_id)
     @logger.info "unavailable #{presence.from}"
-    deleted=@redis.srem("branch:#{branch_id}:jids",from.to_s)
-    @logger.info "deleted #{deleted}"
+    #deleted=@redis.srem("branch:#{branch_id}:jids",from.to_s)
+    #@logger.info "deleted #{deleted}"
     contact=user.contact
     terminate_user_calls(user,branch)
     if(contact)
       if(contact.jid == presence.from.to_s)
         remove_contact_from_cache(contact)
-        contact.delete
+        contact.absent
         notify_contacts_for_branch(branch,contact,Presence::Type::unavailable)
       end
     end
@@ -520,6 +520,7 @@ class  BranchComponent <  AbstractComponent
         user.contact=contact
         saved=user.save
         @logger.info "saved new contact #{saved}"
+        contact.present
         add_contact_to_cache(contact)
         notify_contacts_for_branch(branch,contact,nil)
       end
@@ -632,5 +633,9 @@ class  BranchComponent <  AbstractComponent
       @logger = Logger.new(file)
       @logger.level = Logger::DEBUG
     end
+  end
+
+  def reset_contacts
+    Contact.delete_all
   end
 end
