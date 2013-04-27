@@ -512,7 +512,6 @@ class  BranchComponent <  AbstractComponent
       if(user.can_see?(branch))
         @logger.info "user_id #{user_id}"
         contact=Contact.new({:jid=>from.to_s})
-        contact.presence="available"
         contact.branch=branch
         affiliation=user.affiliations.where(:entity_id=>branch).first
         contact.affiliation=map_type_to_affiliation(affiliation)
