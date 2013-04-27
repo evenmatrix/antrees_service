@@ -47,18 +47,9 @@
         </entry>
       </file>
       <file leaf-file-name="branch.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/recipes/branch.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="30" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="branch.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/branch.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="9" selection-start="2841" selection-end="2841" vertical-scroll-proportion="0.0">
+            <state line="89" column="26" selection-start="2677" selection-end="2677" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -79,7 +70,7 @@
       <file leaf-file-name="branch_component.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/branch_component.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="513" column="46" selection-start="16453" selection-end="16453" vertical-scroll-proportion="0.40467626">
+            <state line="192" column="2" selection-start="5153" selection-end="5153" vertical-scroll-proportion="-7.6133094">
               <folding />
             </state>
           </provider>
@@ -519,14 +510,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/branch.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="9" selection-start="2841" selection-end="2841" vertical-scroll-proportion="0.0">
+        <state line="89" column="26" selection-start="2677" selection-end="2677" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/branch_component.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="513" column="46" selection-start="16453" selection-end="16453" vertical-scroll-proportion="0.40467626">
+        <state line="192" column="2" selection-start="5153" selection-end="5153" vertical-scroll-proportion="-7.6133094">
           <folding />
         </state>
       </provider>
