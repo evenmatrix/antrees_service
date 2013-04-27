@@ -78,7 +78,7 @@ class Branch < ActiveRecord::Base
   end
 
   def online_contacts
-    self.contacts.includes(:user).where(:presence=>"available")
+    self.contacts.includes(:user).online
   end
 
   def tag_list
